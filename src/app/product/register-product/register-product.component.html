@@ -1,0 +1,99 @@
+<section class="vh-100">
+  <div class="container h-100">
+    <div class="jumbotron">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-7">
+          <h1 class="text-primary text-center mb-3">
+            Company Registration Form
+          </h1>
+          <form [formGroup]="registerProduct" (ngSubmit)="onSubmit()">
+            <div class="card" style="border-radius: 10px">
+              <div class="card-body">
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <h6 class="mb-0">Product Name</h6>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      placeholder="Company Name"
+                      formControlName="name"
+                      [(ngModel)]="common.p.name"
+                    />
+                  </div>
+                </div>
+
+                <hr class="mx-n3" />
+
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <h6 class="mb-0">Description</h6>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      placeholder="Description"
+                      formControlName="description"
+                      [(ngModel)]="common.p.description"
+                    />
+                  </div>
+                </div>
+
+                <hr class="mx-n3" />
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <h6 class="mb-0">Built In Country</h6>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      placeholder="Made IN ----"
+                      formControlName="builtIn_Country"
+                      [(ngModel)]="common.p.builtIn_Country"
+                    />
+                  </div>
+                </div>
+                <hr class="mx-n3" />
+                <div class="row align-items-center">
+                  <div class="col-md-4">
+                    <h6 class="mb-0">Price</h6>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="text"
+                      class="form-control form-control-lg"
+                      placeholder="Price"
+                      formControlName="price"
+                      [(ngModel)]="common.p.price"
+                    />
+                  </div>
+
+                  <hr class="mx-n3" />
+                  <div class="px-5 py-4">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-lg"
+                      (click)="addProduct(common.p)"
+                    >
+                      Add Product</button
+                    >&nbsp;&nbsp;
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-lg"
+                      (click)="goBack()"
+                    >
+                      Back
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

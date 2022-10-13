@@ -1,0 +1,84 @@
+<router-outlet></router-outlet>
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-4 text-right">
+        <!-- <form [formGroup]="form" (ngSubmit)="searchForm()">
+          <input type="text" />
+          <button class="btn btn-outline-success">Search By ID</button>
+        </form> -->
+      </div>
+
+      <div class="col-md-4 text-right"></div>
+      <form>
+        <input
+          type="search"
+          (ngModelChange)="searchProduct(key.value)"
+          #key="ngModel"
+          ngModel
+          name="key"
+          id="searchName"
+          placeholder="SearchByName"
+          required
+        />
+        <!-- <button class="btn btn-outline-success">Search By Name</button> -->
+      </form>
+    </div>
+    <br />
+
+    <div id="productData">
+      <table class="table table-success">
+        <tbody>
+          <th>ID</th>
+          <th>Product Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Built In Country</th>
+          <th>Edit</th>
+          <th>Delete</th>
+          <tr
+            *ngFor="
+              let p of productList
+                | paginate
+                  : {
+                      itemsPerPage: tablesize,
+                      currentPage: page,
+                      totalItems: count
+                    }
+            "
+          >
+            <td>{{ p.id }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.description }}</td>
+            <td>{{ p.price }}</td>
+            <td>{{ p.builtIn_Country }}</td>
+            <td>
+              <a class="btn" [routerLink]="['updateproduct']" [state]="p">
+                <i class="fa fa-edit fa-lg" style="color: blue"></i>
+              </a>
+            </td>
+            <td>
+              <a class="btn" (click)="deletePro(p.id)">
+                <i class="fa fa-trash fa-lg" style="color: red"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4 text right">
+      <button class="btn btn-success btn-block" (click)="openPDF()">
+        Download Pdf
+      </button>
+    </div>
+    <div>
+      <pagination-controls
+        responsive="true"
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)"
+      >
+      </pagination-controls>
+    </div>
+  </div>
+</div>

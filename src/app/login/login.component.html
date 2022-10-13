@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+      <div class="row">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <!-- form card login -->
+          <div class="card rounded shadow shadow-sm">
+            <div class="card-header">
+              <h3 class="mb-0">Login</h3>
+            </div>
+            <div class="card-body">
+              <form #loginform="ngForm" (ngSubmit)="loginManager()">
+                <small class="text-danger">{{ msg }}</small>
+                <div class="form-group">
+                  <label for="emailId">Email ID</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-lg rounded-0"
+                    name="emailId"
+                    [(ngModel)]="manager.emailId"
+                  />
+                  <div class="invalid-feedback">Oops, you missed this one.</div>
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    class="form-control form-control-lg rounded-0"
+                    name="password"
+                    [(ngModel)]="manager.password"
+                  />
+                  <div class="invalid-feedback">Enter your password too!</div>
+                </div>
+                <div>
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" />
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description small text-dark"
+                      >Remember me on this computer</span
+                    >
+                  </label>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-success btn-lg float-left"
+                  id="btnLogin"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
+            <hr class="my-4" />
+            <a routerLink="registermanager"
+              >New Manager ? Manager Register here</a
+            >
+            <!--/card-block-->
+          </div>
+          <!-- /form card login -->
+        </div>
+      </div>
+      <!--/row-->
+    </div>
+    <!--/col-->
+  </div>
+  <!--/row-->
+</div>
+<!--/container-->
